@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+
+  <link rel="stylesheet" th:href="@{~/assets/datatables-bs4/css/dataTables.bootstrap4.css}">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" layout:fragment="content">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>File Objects</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item">
+                <a th:href= "@{~/books/{bookId}/objects/add (bookId=${bookId}) }" class = "btn btn-primary" >Create New Object</a>
+              </li>
+              <li class="breadcrumb-item">
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+                  Upload Objects
+                </button>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+
+          <div class="card">
+            <div class="card-header">
+              <!-- <h3 class="card-title">Bank Books</h3> -->
+
+              <div class="card-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                  <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                  <div class="input-group-append">
+                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body table-responsive p-0">
+              <table class="table table-hover">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Mapped Column</th>
+                  <th>Column Type</th>
+                  <th>Description</th>
+                  <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="b,iterator :${bookobjects}">
+                  <td th:text="${iterator.index + 1}"></td>
+                  <td th:text="${b.name}"></td>
+                  <td th:text="${b.mappedColumn}"></td>
+                  <td th:text="${b.mappedColumnType}"></td>
+                  <td th:text="${b.description}"></td>
+                  <td><a th:href= "@{~/books/{bookId}/objects/{bookObjectId} (bookObjectId=${b.id},bookId=${bookId}) }" class = "btn btn-default" >View</a></td>
+                </tr>
+
+                </tbody>
+              </table>
+            </div>
+
+            <!-- /.card-body -->
+            <div class="card-footer">
+              <a th:href="@{~/books/{pathParam} (pathParam=${bookId}) }" class="btn btn-default ">Back</a>
+            </div>
+          </div>
+          <!-- /.card -->
+
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+    <div class="modal fade" id="modal-default">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">File Object Upload</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form method="POST" th:action="@{~/books/{pathParam}/objects/bulk/upload (pathParam=${bookId}) }"  enctype="multipart/form-data" class="form-horizontal" >
+              <div class="form-group">
+                <label for="uploadFile">File input. <a th:href="@{~/assets/bank_book_objects.csv}" >Download Sample</a></label>
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" name="uploadFile" id="uploadFile">
+                    <label class="custom-file-label" for="uploadFile">Choose file</label>
+                  </div>
+                  <div class="input-group-append">
+                    <button type="submit" class="btn btn-info" >Upload</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>c
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+
+  </div>
+  <!-- /.content-wrapper -->
+
+
+</div>
+<!-- ./wrapper -->
+<script>
+
+
+</script>
+
+</body>
+</html>

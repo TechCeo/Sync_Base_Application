@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" layout:fragment="content">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>File Sync Audit</h1>
+          </div>
+          
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-12">
+
+          <div class="card">
+            <!-- <div class="card-header">
+              <h3 class="card-title">Book Objects</h3>
+            </div> -->
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Start Time</th>
+                  <th>Completion Time</th>
+                  <th>Status</th>
+                  <th>Records Processed</th>
+                  <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="b,iterator :${syncAudits}">
+                  <td th:text="${iterator.index + 1}"></td>
+                  <td th:text="${b.bookName}"></td>
+                  <td th:text="${b.startedOn}"></td>
+                  <td th:text="${b.completedOn}"></td>
+                  <td th:text="${b.status}"></td>
+                  <td th:text="${b.lastCount}"></td>
+                  <td><a th:href= "@{~/reports/book_sync/{pathParam}/edit (pathParam=${b.processId}) }" class = "btn btn-default" >View</a></td>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+
+</div>
+<!-- ./wrapper -->
+
+<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "ajax": {
+        url: "/reports/all",
+        "type": "GET"
+      }
+    });
+  });
+</script>
+</body>
+</html>

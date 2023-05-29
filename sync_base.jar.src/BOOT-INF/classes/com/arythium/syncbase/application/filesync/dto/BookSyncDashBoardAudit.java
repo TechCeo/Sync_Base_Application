@@ -1,0 +1,21 @@
+/*    */ package BOOT-INF.classes.com.arythium.syncbase.application.filesync.dto;
+/*    */ public class BookSyncDashBoardAudit extends AbstractDto {
+/*    */   private String PROCESSED_BOOKS_COUNT;
+/*    */   private String COMPLETED_BOOKS_COUNT;
+/*    */   
+/*  6 */   public void setPROCESSED_BOOKS_COUNT(String PROCESSED_BOOKS_COUNT) { this.PROCESSED_BOOKS_COUNT = PROCESSED_BOOKS_COUNT; } private String PAUSED_BOOKS_COUNT; private String STOPPED_BOOKS_COUNT; public void setCOMPLETED_BOOKS_COUNT(String COMPLETED_BOOKS_COUNT) { this.COMPLETED_BOOKS_COUNT = COMPLETED_BOOKS_COUNT; } public void setPAUSED_BOOKS_COUNT(String PAUSED_BOOKS_COUNT) { this.PAUSED_BOOKS_COUNT = PAUSED_BOOKS_COUNT; } public void setSTOPPED_BOOKS_COUNT(String STOPPED_BOOKS_COUNT) { this.STOPPED_BOOKS_COUNT = STOPPED_BOOKS_COUNT; } public boolean equals(Object o) { if (o == this) return true;  if (!(o instanceof com.arythium.syncbase.application.filesync.dto.BookSyncDashBoardAudit)) return false;  com.arythium.syncbase.application.filesync.dto.BookSyncDashBoardAudit other = (com.arythium.syncbase.application.filesync.dto.BookSyncDashBoardAudit)o; if (!other.canEqual(this)) return false;  Object this$PROCESSED_BOOKS_COUNT = getPROCESSED_BOOKS_COUNT(), other$PROCESSED_BOOKS_COUNT = other.getPROCESSED_BOOKS_COUNT(); if ((this$PROCESSED_BOOKS_COUNT == null) ? (other$PROCESSED_BOOKS_COUNT != null) : !this$PROCESSED_BOOKS_COUNT.equals(other$PROCESSED_BOOKS_COUNT)) return false;  Object this$COMPLETED_BOOKS_COUNT = getCOMPLETED_BOOKS_COUNT(), other$COMPLETED_BOOKS_COUNT = other.getCOMPLETED_BOOKS_COUNT(); if ((this$COMPLETED_BOOKS_COUNT == null) ? (other$COMPLETED_BOOKS_COUNT != null) : !this$COMPLETED_BOOKS_COUNT.equals(other$COMPLETED_BOOKS_COUNT)) return false;  Object this$PAUSED_BOOKS_COUNT = getPAUSED_BOOKS_COUNT(), other$PAUSED_BOOKS_COUNT = other.getPAUSED_BOOKS_COUNT(); if ((this$PAUSED_BOOKS_COUNT == null) ? (other$PAUSED_BOOKS_COUNT != null) : !this$PAUSED_BOOKS_COUNT.equals(other$PAUSED_BOOKS_COUNT)) return false;  Object this$STOPPED_BOOKS_COUNT = getSTOPPED_BOOKS_COUNT(), other$STOPPED_BOOKS_COUNT = other.getSTOPPED_BOOKS_COUNT(); return !((this$STOPPED_BOOKS_COUNT == null) ? (other$STOPPED_BOOKS_COUNT != null) : !this$STOPPED_BOOKS_COUNT.equals(other$STOPPED_BOOKS_COUNT)); } protected boolean canEqual(Object other) { return other instanceof com.arythium.syncbase.application.filesync.dto.BookSyncDashBoardAudit; } public int hashCode() { int PRIME = 59; result = 1; Object $PROCESSED_BOOKS_COUNT = getPROCESSED_BOOKS_COUNT(); result = result * 59 + (($PROCESSED_BOOKS_COUNT == null) ? 43 : $PROCESSED_BOOKS_COUNT.hashCode()); Object $COMPLETED_BOOKS_COUNT = getCOMPLETED_BOOKS_COUNT(); result = result * 59 + (($COMPLETED_BOOKS_COUNT == null) ? 43 : $COMPLETED_BOOKS_COUNT.hashCode()); Object $PAUSED_BOOKS_COUNT = getPAUSED_BOOKS_COUNT(); result = result * 59 + (($PAUSED_BOOKS_COUNT == null) ? 43 : $PAUSED_BOOKS_COUNT.hashCode()); Object $STOPPED_BOOKS_COUNT = getSTOPPED_BOOKS_COUNT(); return result * 59 + (($STOPPED_BOOKS_COUNT == null) ? 43 : $STOPPED_BOOKS_COUNT.hashCode()); } public String toString() { return "BookSyncDashBoardAudit(PROCESSED_BOOKS_COUNT=" + getPROCESSED_BOOKS_COUNT() + ", COMPLETED_BOOKS_COUNT=" + getCOMPLETED_BOOKS_COUNT() + ", PAUSED_BOOKS_COUNT=" + getPAUSED_BOOKS_COUNT() + ", STOPPED_BOOKS_COUNT=" + getSTOPPED_BOOKS_COUNT() + ")"; }
+/*    */ 
+/*    */   
+/*    */   public String getPROCESSED_BOOKS_COUNT() {
+/* 10 */     return this.PROCESSED_BOOKS_COUNT;
+/* 11 */   } public String getCOMPLETED_BOOKS_COUNT() { return this.COMPLETED_BOOKS_COUNT; }
+/* 12 */   public String getPAUSED_BOOKS_COUNT() { return this.PAUSED_BOOKS_COUNT; } public String getSTOPPED_BOOKS_COUNT() {
+/* 13 */     return this.STOPPED_BOOKS_COUNT;
+/*    */   }
+/*    */ }
+
+
+/* Location:              C:\Users\olatu\OneDrive\Documents\Calypso\syncbase\sync_base.jar!\BOOT-INF\classes\com\arythium\syncbase\application\filesync\dto\BookSyncDashBoardAudit.class
+ * Java compiler version: 8 (52.0)
+ * JD-Core Version:       1.1.3
+ */
