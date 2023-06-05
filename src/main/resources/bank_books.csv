@@ -1,0 +1,6 @@
+bank_book_name,book_prefix,mapped_table_name
+BANK-BI FX,bifx,FX_DEALS
+BANK-BI BUS_ACT,bibusact,BUS_ACT
+BANK-BI BOND_ACT,bibondact,BOND_ACT
+BANK-BI BOND_TAB,bondact,BOND_TAB
+TRADE BROWSER,TBR,TRADE_BROWSER

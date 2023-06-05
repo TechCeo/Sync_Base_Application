@@ -1,0 +1,5 @@
+bank_book_name,object_name,description,mapped_column_name,column_data_type,default_value
+BANK-BI FX,Branch Code,The Code Identifying The Bank’s Branch Related To The Deal (Usually The Home Bank Or HQ)  ,BRA_CODE,VARCHAR,
+BANK-BI FX,Deal Type,"The Foreign Exchange Deal Type. Valid values Are: spot deal, swap spot side, forward deal, swap forward side",DEAL_TYPE,VARCHAR,
+BANK-BI FX,Deal Year,The Year During Which A Deal Is Made. ,DEAL_YEAR,VARCHAR,
+BANK-BI FX,Dealer Code,The Code With Which The Dealer Is Identified. (It could be the Same As Teller ID).  ,DELR_CODE,VARCHAR,

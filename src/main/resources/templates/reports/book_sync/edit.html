@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}" >
+<head>
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper" >
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" layout:fragment="content">
+    <!-- Content Header (Page header) -->
+    <section class="content-header" >
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>File Sync Audit</h1>
+          </div>
+
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item">
+                <a th:href= "@{~/reports/book_sync}"  class="btn btn-default ">Back</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+      
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- Horizontal Form -->
+            <div class="card card-info">
+              <!-- <div class="card-header">
+                <h3 class="card-title">Add Bank Book</h3>
+              </div> -->
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form class="form-horizontal" th:object="${book_sync}">
+                <div class="card-body">
+                  <div class="form-group row">
+                    <label for="processId" class="col-sm-2 col-form-label">Process ID</label>
+                    <div class="col-sm-8">
+                      <input type="text" readonly  class="form-control" th:field="*{processId}" id="processId" >
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="bookName" class="col-sm-2 col-form-label">File Name</label>
+                    <div class="col-sm-8">
+                      <input type="text" readonly class="form-control" th:field="*{bookName}" id="bookName" >
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="status" class="col-sm-2 col-form-label">Status</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" th:field="*{status}" readonly id="status" >
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="status" class="col-sm-2 col-form-label">Reason</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" th:field="*{message}" readonly id="message" >
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="Ended" class="col-sm-2 col-form-label">Records Processed</label>
+                    <div class="col-sm-4">
+                      <input type="text" readonly class="form-control" th:field="*{lastCount}" id="lastCount" >
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="Started" class="col-sm-2 col-form-label">Started</label>
+                    <div class="col-sm-4">
+                      <input type="text" readonly class="form-control" th:field="*{startedOn}" id="Started" >
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="Ended" class="col-sm-2 col-form-label">Ended</label>
+                    <div class="col-sm-4">
+                      <input type="text" readonly class="form-control" th:field="*{completedOn}" id="Ended" >
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="bookName" class="col-sm-2 col-form-label">Action</label>
+                    <div class="col-sm-8">
+                      <button class="btn btn-default" disabled>STOP</button>
+                    </div>
+                  </div>
+
+                </div>
+              </form>
+
+              <div class="timeline">
+                <div th:each="b,iterator :${book_sync_audits}">
+                  <i class="fas bg-blue" th:text="${iterator.index + 1}" ></i>
+                  <div class="timeline-item">
+<!--                    <span class="time"><i class="fas fa-clock"></i> 12:05 12:34:33</span>-->
+                    <span class="time"><i class="fas fa-clock"></i> <span th:text="${b.dateCreated}"></span></span>
+                    <h3 class="timeline-header" th:text="${b.syncStatus}"></h3>
+                    <div class="timeline-body" th:text="'Process was '+${b.syncStatus}+' by '+${b.initiatedBy}">
+                      Process was COMPLETED by SYSTEM
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <!-- /.card -->
+
+
+
+          </div>
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+</div>
+</body>
+</html>
